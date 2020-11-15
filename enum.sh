@@ -39,20 +39,12 @@ if [ extensions == "yes" ]
 then
 extention="-x /usr/share/wordlists/dirb/extentions-common.txt"
 fi
+echo $wordlist
 
-#note to concatenate extensions onto command
-tab=" --tab"
-options=()
+gnome-terminal --tab -e "bash -c 'nikto -h ${RHOST} ; bash'"
 
-cmds[1]="nikto -h ${RHOST}"
+gnome-terminal --tab -e "bash -c 'gobuster dir -u ${RHOST} -w ${wordlist} ${extension} ; bash'"
 
-cmds[2]="sudo uniscan -u ${RHOST} -qweds"
+gnome-terminal --tab -e "bash -c 'sudo uniscan -u ${RHOST} -qweds ; bash'"
 
-cmds[3]="gobuster dir -u ${RHOST} -w ${wordlistsize} ${extension}"
-
-for i in 1 2; do
-options+=($tab -e "bash -c '${cmds[i]} ; bash'" )
-done
-
-gnome-terminal "${options[@]}"
 exit 0
