@@ -2,7 +2,7 @@
 
 printf "enter desired hostname\n"
 read hostname
-echo "enter ip address\n"
+echo "enter ip address\n#>"
 read ip
 
 sudo echo "$ip	$hostname" >> /etc/hosts
