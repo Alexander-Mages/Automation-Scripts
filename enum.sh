@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "eneumerate dis bih" | cowsay | lolcat
+echo "eneumeration" | cowsay | lolcat
 
 echo "note: uniscan functionality requires password entry unless script is ran as root"
 
@@ -8,7 +8,7 @@ printf "#Enter name of workspace folder /home/anon/Workspace/* \n>"
 
 	read workspacefolder
 
-	cd /home/anon/Workspace/$workspacefolder
+	cd /home/alex/Workspace/$workspacefolder
 
 
 printf "#Enter RHOST w/o additional formatting \n>"
@@ -17,7 +17,7 @@ printf "#Enter RHOST w/o additional formatting \n>"
 
 	RHOST="http://${preRHOST}/"
 
-printf "#Enter wordlist size for gobuster small/medium/large/dirb_default\n>"
+printf "#Enter wordlist size for gobuster small/medium/large/dirb_default/custom\n>"
 	        read wordlistsize
                 if [ $wordlistsize == "small" ]
                         then
@@ -31,6 +31,11 @@ printf "#Enter wordlist size for gobuster small/medium/large/dirb_default\n>"
                 elif [ $wordlistsize == "dirb_default" ]
 			then
 			wordlist="/usr/share/wordlists/dirb/common.txt"
+		elif [ $wordlistsize == "custom" ]
+			then
+			printf "Enter absolute path to custom wordlist\n"
+			read customWordlist
+			wordlist=customWordlist
 fi
 	printf "#Do you want to use brute force extensions too? yes/no(default) (you can master quantum physics while you wait)\n>"
 	read extensions
