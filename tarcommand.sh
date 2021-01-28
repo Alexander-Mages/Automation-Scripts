@@ -1,16 +1,16 @@
 #\bin\bash
-
-echo Would you like to compress or extract? enter compress or extract exactly
+dir=pwd
+printf "Would you like to compress or extract? (c/x)\n#>"
 read action
-echo Please enter the full path to your file
+printf "Enter path to file. note: current working directory is: $dir\n#>"
 read path
 
-if [ $action = "extract" ]
+if [ $action = "x" ]
 then
-	tar -xzf $path
+	tar -xzvf $path
 fi
 	if [ $action = "compress" ]
 	then
-		tar -czf $path
+		tar -cvzf $path
 fi
-echo 'tar -xzf dont forget it this time dumbass'
+echo 'tar -xzf is the command, remember it next time :)'
