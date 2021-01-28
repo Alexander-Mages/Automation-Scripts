@@ -35,7 +35,7 @@ iteration=1
 for i in $iterationCount
 do
 	
-	output="output${iteration}"
+	output=echo "${output}${iteration}"
 	finaloutput=echo $output
 	xrandr --output ${finaloutput} --brightness $brightness
 	(( iteration++ ))
