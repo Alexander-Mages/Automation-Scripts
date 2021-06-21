@@ -50,7 +50,7 @@ gnome-terminal --tab -e "bash -c 'nikto -h ${RHOST} ; bash'"
 
 gnome-terminal --tab -e "bash -c 'gobuster dir -u ${RHOST} -w ${wordlist} ${extension} ; bash'"
 
-gnome-terminal --tab -e "bash -c 'nmap -p 1-65535 -T4 -A -v 10.10.10.215'"
+gnome-terminal --tab -e "bash -c 'nmap -p 1-65535 -T4 -A -v ${RHOST}'"
 
 gnome-terminal --tab -e "bash -c 'sudo uniscan -u ${RHOST} -qweds ; bash'"
 
